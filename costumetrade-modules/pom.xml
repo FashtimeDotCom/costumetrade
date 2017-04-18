@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.touchart.costumetrade</groupId>
+  <artifactId>costumetrade-modules</artifactId>
+  <version>2.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>costumetrade-modules</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <modules>
+  	<module>../costumetrade-order</module>
+  	<module>../costumetrade-pay</module>
+  	<module>../costumetrade-permission</module>
+  	<module>../costumetrade-quartz</module>
+  	<module>../costumetrade-report</module>
+  	<module>../costumetrade-stock</module>
+  	<module>../costumetrade-user</module>
+  </modules>
+</project>
