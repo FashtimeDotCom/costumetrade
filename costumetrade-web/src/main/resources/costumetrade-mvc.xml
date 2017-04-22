@@ -61,7 +61,7 @@
 
 	<!-- 静态资源无法找到的方法,注：这句如果放最后，图片还是会显示不出来 -->
 	<mvc:default-servlet-handler />
-
+	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />

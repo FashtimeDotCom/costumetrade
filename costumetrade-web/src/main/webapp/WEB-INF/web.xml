@@ -13,13 +13,13 @@
      
      <!-- 定时任务
 	<listener>
-		<listener-class>carloan.quartz.listener.QuartzTaskListener</listener-class>
+		<listener-class>costumetrade.quartz.listener.QuartzTaskListener</listener-class>
 	</listener> -->
 	
 	<!-- start 过滤外部接口的controller请求 
 	<filter>
         <filter-name>busiAuthenticateFilter</filter-name>
-        <filter-class>carloan.bank.filter.BusiAuthenticateFilter</filter-class>
+        <filter-class>costumetrade.bank.filter.BusiAuthenticateFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>busiAuthenticateFilter</filter-name>

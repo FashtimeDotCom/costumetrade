@@ -50,12 +50,12 @@
 
     <Loggers>
     
-    	<AsyncLogger name="carloan.common.login.EscapeLoginAspect" level="warn" additivity="false">
+    	<AsyncLogger name="costumetrade.common.login.EscapeLoginAspect" level="warn" additivity="false">
             <AppenderRef ref="EscapeLoginFile"/>
             <AppenderRef ref="console"/>
         </AsyncLogger>
         
-        <Logger name="carloan" level="debug" additivity="false">
+        <Logger name="costumetrade" level="debug" additivity="false">
             <appenderRef ref="console"/>
         </Logger>
 
