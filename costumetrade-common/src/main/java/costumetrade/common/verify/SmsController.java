@@ -119,7 +119,7 @@ public class SmsController {
 
 	private boolean ipExceedLimit(String ip) {
 		
-		if(redisTemplate.opsForList().size("carloan.sms.ip."+ip)>=ipMinuteSize){
+		if(redisTemplate.opsForList().size("costumetrade.sms.ip."+ip)>=ipMinuteSize){
 			Long millis = (Long) redisTemplate.opsForList().index(IP_CACHEKEY+ip, ipMinuteSize-1);
 			return millis+60000>System.currentTimeMillis();
 		}

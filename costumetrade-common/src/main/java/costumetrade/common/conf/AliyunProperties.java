@@ -32,11 +32,11 @@ public class AliyunProperties {
 	}
 
 	public static String getDir() {
-		return ConfigProperties.getProperty("aliyun.oss.dir", "carloan/");
+		return ConfigProperties.getProperty("aliyun.oss.dir", "costumetrade/");
 	}
 
 	public static String getStyle() {
-		return ConfigProperties.getProperty("aliyun.oss.style", "aliyun.oss.style:?x-oss-process=style/carloan");
+		return ConfigProperties.getProperty("aliyun.oss.style", "aliyun.oss.style:?x-oss-process=style/costumetrade");
 	}
 
 }

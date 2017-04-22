@@ -4,7 +4,7 @@
  * Author     :liyb
  * Create Date:2016年3月14日
  
-package carloan.common.util;
+package costumetrade.common.util;
 
 import java.io.File;
 import java.io.IOException;

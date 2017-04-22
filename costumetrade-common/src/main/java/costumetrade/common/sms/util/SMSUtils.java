@@ -4,7 +4,7 @@
  * Author     :liyb
  * Create Date:2016年2月25日
  
-package carloan.common.sms.util;
+package costumetrade.common.sms.util;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -22,8 +22,8 @@ import org.dom4j.Element;
 
 import com.alibaba.fastjson.JSONObject;
 
-import carloan.common.context.DomainContext;
-import carloan.common.sms.constant.SMSApiConfig;
+import costumetrade.common.context.DomainContext;
+import costumetrade.common.sms.constant.SMSApiConfig;
 
 *//**
  * 短信工具类

@@ -17,16 +17,16 @@ public class JwtService {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(JwtService.class);
 
-	@Value("${jwt.issuer:hrfax.carloan.jwt}")
+	@Value("${jwt.issuer:hrfax.costumetrade.jwt}")
 	private String issuer;
 
 	@Value("${jwt.secretKey:eyJhbGciOiJIUzUxMiJ9}")
 	private String secretKey;
 	
-	@Value("${carloan.login.token.expired:3600}")//1个小时
+	@Value("${costumetrade.login.token.expired:3600}")//1个小时
 	private long expiredDuration;
 	
-	@Value("${carloan.login.app.token.expired:324000}") // 三个月
+	@Value("${costumetrade.login.app.token.expired:324000}") // 三个月
 	private long appExpiredDuration;
 
 	public String tokenFor(String account) {

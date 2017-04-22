@@ -42,7 +42,7 @@ public class ActorSystemContext implements DisposableBean {
 
 	private static ActorSystem init() {
 
-		return ActorSystem.create("carloan");
+		return ActorSystem.create("costumetrade");
 	}
 
 	public static EventStream getEventStream() {

@@ -11,6 +11,6 @@ package costumetrade.common.conf;
  */
 public class SystemProperties {
 	
-	public static final String name = "carloan";
+	public static final String name = "costumetrade";
 
 }

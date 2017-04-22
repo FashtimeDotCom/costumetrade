@@ -10,7 +10,7 @@
 
 	<context id="mysql" targetRuntime="MyBatis3">
 		<plugin type="costumetrade.common.EntityClassRoot">
-        	<property name="superClass" value="carloan.common.Entity" />
+        	<property name="superClass" value="costumetrade.common.Entity" />
       	</plugin>
 
 		<commentGenerator type="costumetrade.common.HrCommentGenerator">
@@ -30,18 +30,18 @@
 
 		<javaModelGenerator targetPackage="${model.package}"
 			targetProject="${target.project}">
-			<property name="enableSubPackages" value="false" />
+			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
 		<sqlMapGenerator targetPackage="${xml.mapper.package}"
 			targetProject="${target.resources}">
-			<property name="enableSubPackages" value="false" />
+			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
 		<javaClientGenerator type="XMLMAPPER"
 			targetPackage="${dao.package}" targetProject="${target.project}">
-			<property name="enableSubPackages" value="false" />
+			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
 	    <!--征信模块  -->
@@ -49,11 +49,17 @@
 		<table tableName="credit_result" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false">
-		</table>-->
+		</table> 
  	
 		<table tableName="sp_unit" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false">
+		</table>-->
+		<table tableName="sp_employee"  domainObjectName="SpEmployee"
+			enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
 		</table>
+		
 	</context>
 </generatorConfiguration>
