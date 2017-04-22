@@ -11,4 +11,15 @@ public interface SpEmployeeService {
 	 * 
 	 * */
 	public List<SpEmployee> getAllEmployees();
+	/**
+	 * 保存员工信息
+	 * 
+	 * */
+	public int saveEmployee(SpEmployee spEmployee);
+	
+	/**
+	 * 删除员工信息
+	 * 
+	 * */
+	public int deleteEmployee(SpEmployee spEmployee);
 }

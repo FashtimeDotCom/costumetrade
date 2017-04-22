@@ -1,6 +1,7 @@
 package costumetrade.user.domain;
 
 import costumetrade.common.Entity;
+
 import java.util.Date;
 
 public class SpEmployee extends Entity {
@@ -78,6 +79,32 @@ public class SpEmployee extends Entity {
      *  身份证
      */
     private String cardId;
+    
+    /**
+     *  
+     */
+    private Integer corpid;
+
+    /**
+     *  员工编号:
+     */
+    private String id;
+
+    public Integer getCorpid() {
+        return corpid;
+    }
+
+    public void setCorpid(Integer corpid) {
+        this.corpid = corpid;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
 
     private static final long serialVersionUID = 1L;
 

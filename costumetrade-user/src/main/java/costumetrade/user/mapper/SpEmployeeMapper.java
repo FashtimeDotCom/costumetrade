@@ -2,13 +2,14 @@ package costumetrade.user.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import costumetrade.user.domain.SpEmployee;
 import costumetrade.user.domain.SpEmployeeKey;
-@Component
-@Repository
+
+@Mapper
 public interface SpEmployeeMapper {
     int deleteByPrimaryKey(SpEmployeeKey key);
 
