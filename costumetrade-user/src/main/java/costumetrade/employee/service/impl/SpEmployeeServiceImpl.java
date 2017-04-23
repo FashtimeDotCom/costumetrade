@@ -22,30 +22,29 @@ public class SpEmployeeServiceImpl implements SpEmployeeService{
 	@Override
 	public List<SpEmployee> getAllEmployees() {
 
-		// TODO Auto-generated method stub
 		return spEmployeeMapper.getAllEmployees();
 	}
 	@Override
 	public int saveEmployee(SpEmployee spEmployee) {
-		// TODO Auto-generated method stub
+
 		SpEmployeeKey spEmployeeKey = new SpEmployeeKey();
 		if(spEmployee.getId() != null && spEmployee.getCorpid() != null){
 			spEmployeeKey.setId(spEmployee.getId());
 			spEmployeeKey.setCorpid(spEmployee.getCorpid());
+			SpEmployee getEmployee = spEmployeeMapper.selectByPrimaryKey(spEmployeeKey);
+			if(getEmployee == null){
+			return spEmployeeMapper.updateByPrimaryKey(spEmployee);
+			}
 		}
 		spEmployeeKey.setCorpid(spEmployee.getCorpid());
 		//查询对应ID的员工是否存在，存在的话进行update 不存在save
-		SpEmployee getEmployee = spEmployeeMapper.selectByPrimaryKey(spEmployeeKey);
-		if(getEmployee == null){
-			return spEmployeeMapper.insert(spEmployee) ;
-		}else {
-			return spEmployeeMapper.updateByPrimaryKey(spEmployee);
-		}
+
+		return spEmployeeMapper.insert(spEmployee) ;
 		 
 	}
 	@Override
 	public int deleteEmployee(SpEmployee spEmployee) {
-		// TODO Auto-generated method stub
+
 		SpEmployeeKey spEmployeeKey = new SpEmployeeKey();
 		if(spEmployee.getId() != null && spEmployee.getCorpid() != null){
 			spEmployeeKey.setId(spEmployee.getId());
