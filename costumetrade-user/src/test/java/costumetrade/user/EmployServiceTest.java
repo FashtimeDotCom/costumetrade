@@ -35,14 +35,29 @@ public class EmployServiceTest {
 		
 		SpEmployee spEmployee = new SpEmployee();
 		
-		spEmployee.setName("fdsfsdfsdfdsf");
-
+		spEmployee.setName("陈思成");
+		spEmployee.setCorpid(1);
+		spEmployee.setId("fancy001");
 		spEmployee.setStatus(1);
 		spEmployee.setCreateTime(new Date());
 		spEmployee.setSubbelong("33");
 		spEmployeeService.saveEmployee(spEmployee);
 
 	}
-	
-	
+	@Test
+	public void deleteEmployee(){
+		
+		SpEmployee spEmployee = new SpEmployee();
+		spEmployee.setCorpid(4);
+		spEmployeeService.deleteEmployee(spEmployee);
+
+	}
+	@Test
+	public void getEmployee(){
+		
+		SpEmployee spEmployee = new SpEmployee();
+		spEmployee.setSubbelong(33+"");
+		System.out.println(spEmployeeService.getAllEmployees(33+""));
+
+	}
 }

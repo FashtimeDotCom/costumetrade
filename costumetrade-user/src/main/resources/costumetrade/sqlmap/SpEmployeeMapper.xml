@@ -29,7 +29,7 @@
     <include refid="Base_Column_List" />
     from sp_employee
     where 1=1
-     <if test="corpId != null">
+     <if test="corpid != null">
        and corpId = #{corpid,jdbcType=INTEGER}
       </if>
      <if test="id != null">
@@ -37,17 +37,20 @@
       </if>
   </select>
   
-  <select id="getAllEmployees"  resultMap="BaseResultMap">
+  <select id="getAllEmployees" parameterType="String"  resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sp_employee
- 
+    where 
+ 	subbelong = #{subbelong,jdbcType=VARCHAR}
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="costumetrade.user.domain.SpEmployeeKey">
     delete from sp_employee
     where corpId = #{corpid,jdbcType=INTEGER}
+      <if test="id != null">
       and id = #{id,jdbcType=VARCHAR}
+      </if>
   </delete>
   <insert id="insert" parameterType="costumetrade.user.domain.SpEmployee">
     insert into sp_employee (corpId, id, status, 

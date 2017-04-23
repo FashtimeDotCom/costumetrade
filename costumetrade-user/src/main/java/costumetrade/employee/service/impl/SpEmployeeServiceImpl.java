@@ -20,37 +20,39 @@ public class SpEmployeeServiceImpl implements SpEmployeeService{
 	@Autowired
 	private SpEmployeeMapper spEmployeeMapper;
 	@Override
-	public List<SpEmployee> getAllEmployees() {
+	public List<SpEmployee> getAllEmployees(String subId) {
 
-		return spEmployeeMapper.getAllEmployees();
+		return spEmployeeMapper.getAllEmployees(subId);
 	}
 	@Override
 	public int saveEmployee(SpEmployee spEmployee) {
-
+		int save = 0;
 		SpEmployeeKey spEmployeeKey = new SpEmployeeKey();
 		if(spEmployee.getId() != null && spEmployee.getCorpid() != null){
 			spEmployeeKey.setId(spEmployee.getId());
 			spEmployeeKey.setCorpid(spEmployee.getCorpid());
+			System.out.println(spEmployeeMapper.selectByPrimaryKey(spEmployeeKey));
 			SpEmployee getEmployee = spEmployeeMapper.selectByPrimaryKey(spEmployeeKey);
-			if(getEmployee == null){
-			return spEmployeeMapper.updateByPrimaryKey(spEmployee);
+			if(getEmployee != null){
+				save = spEmployeeMapper.updateByPrimaryKeySelective(spEmployee);
 			}
+		}else {
+			save = spEmployeeMapper.insert(spEmployee) ;
 		}
-		spEmployeeKey.setCorpid(spEmployee.getCorpid());
+		 
 		//查询对应ID的员工是否存在，存在的话进行update 不存在save
-
-		return spEmployeeMapper.insert(spEmployee) ;
+		return save;
+		
 		 
 	}
 	@Override
 	public int deleteEmployee(SpEmployee spEmployee) {
 
 		SpEmployeeKey spEmployeeKey = new SpEmployeeKey();
-		if(spEmployee.getId() != null && spEmployee.getCorpid() != null){
-			spEmployeeKey.setId(spEmployee.getId());
+		if(spEmployee.getCorpid() != null){
 			spEmployeeKey.setCorpid(spEmployee.getCorpid());
 		}else{
-			return UserConstant.OPERATE_FAIL;
+			return UserConstant.SAVE_FAIL;
 		}
 		return spEmployeeMapper.deleteByPrimaryKey(spEmployeeKey);
 	}

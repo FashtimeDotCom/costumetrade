@@ -10,7 +10,7 @@ public interface SpEmployeeService {
 	 * 获取所有员工信息
 	 * 
 	 * */
-	public List<SpEmployee> getAllEmployees();
+	public List<SpEmployee> getAllEmployees(String subId);
 	/**
 	 * 保存员工信息
 	 * 

@@ -1,10 +1,12 @@
 package costumetrade.user.domain;
 
-import costumetrade.common.Entity;
-
+import java.io.Serializable;
 import java.util.Date;
 
-public class SpEmployee extends Entity {
+import costumetrade.common.Entity;
+
+public class SpEmployee extends Entity implements Serializable{
+	private static final long serialVersionUID = 1L;
     /**
      *  员工状态:
      */
@@ -106,7 +108,7 @@ public class SpEmployee extends Entity {
         this.id = id == null ? null : id.trim();
     }
 
-    private static final long serialVersionUID = 1L;
+    
 
     public Integer getStatus() {
         return status;

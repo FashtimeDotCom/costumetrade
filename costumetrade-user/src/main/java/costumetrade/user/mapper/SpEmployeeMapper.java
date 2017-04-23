@@ -23,5 +23,5 @@ public interface SpEmployeeMapper {
 
     int updateByPrimaryKey(SpEmployee record);
     
-    List<SpEmployee>  getAllEmployees();
+    List<SpEmployee>  getAllEmployees(String subId);
 }
