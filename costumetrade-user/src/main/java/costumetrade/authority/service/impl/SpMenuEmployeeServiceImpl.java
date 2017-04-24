@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import costumetrade.authority.service.SpMenuEmployeeService;
 import costumetrade.user.domain.SpMenuEmployee;
 import costumetrade.user.mapper.SpMenuEmployeeMapper;
-import costumetrade.util.UserConstant;
 
 @Transactional
 @Service

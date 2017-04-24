@@ -3,8 +3,6 @@ package costumetrade.employee.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +10,6 @@ import costumetrade.employee.service.SpEmployeeService;
 import costumetrade.user.domain.SpEmployee;
 import costumetrade.user.domain.SpEmployeeKey;
 import costumetrade.user.mapper.SpEmployeeMapper;
-import costumetrade.util.UserConstant;
 
 @Transactional
 @Service
@@ -31,7 +28,7 @@ public class SpEmployeeServiceImpl implements SpEmployeeService{
 		if(spEmployee.getId() != null && spEmployee.getCorpid() != null){
 			spEmployeeKey.setId(spEmployee.getId());
 			spEmployeeKey.setCorpid(spEmployee.getCorpid());
-			System.out.println(spEmployeeMapper.selectByPrimaryKey(spEmployeeKey));
+
 			SpEmployee getEmployee = spEmployeeMapper.selectByPrimaryKey(spEmployeeKey);
 			if(getEmployee != null){
 				save = spEmployeeMapper.updateByPrimaryKeySelective(spEmployee);
@@ -47,13 +44,13 @@ public class SpEmployeeServiceImpl implements SpEmployeeService{
 	}
 	@Override
 	public int deleteEmployee(SpEmployee spEmployee) {
-
-		SpEmployeeKey spEmployeeKey = new SpEmployeeKey();
-		if(spEmployee.getCorpid() != null){
-			spEmployeeKey.setCorpid(spEmployee.getCorpid());
-		}else{
-			return UserConstant.SAVE_FAIL;
+		if(spEmployee.getCorpid() == null){
+			return 0;
 		}
+		
+		SpEmployeeKey spEmployeeKey = new SpEmployeeKey();
+		spEmployeeKey.setCorpid(spEmployee.getCorpid());
+		
 		return spEmployeeMapper.deleteByPrimaryKey(spEmployeeKey);
 	}
 	

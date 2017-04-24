@@ -10,13 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import costumetrade.common.Entity;
 import costumetrade.common.param.ApiResponse;
 import costumetrade.common.param.ResponseInfo;
-import costumetrade.domain.UserInfo;
 import costumetrade.employee.service.SpEmployeeService;
 import costumetrade.user.domain.SpEmployee;
-import costumetrade.util.UserConstant;
 
 /**
  *
