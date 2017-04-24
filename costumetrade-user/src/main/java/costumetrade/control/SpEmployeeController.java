@@ -33,15 +33,11 @@ public class SpEmployeeController {
 	@RequestMapping("/getAllEmployees")
 	@ResponseBody
 	public ApiResponse getAllEmployees(@RequestBody String subId) {
-
-		ApiResponse result = new ApiResponse();
-		result.setCode(ResponseInfo.SUCCESS.code);
-		result.setMsg(ResponseInfo.SUCCESS.msg);
+		
 		List<SpEmployee> employeeLists = new ArrayList<SpEmployee>();
 		employeeLists = spEmployeeService.getAllEmployees(subId);
-		result.setData(employeeLists);
-	
-		return result;
+
+		return  ApiResponse.getInstance(employeeLists);
 	}
 
 	@RequestMapping("/saveEmployee")
@@ -71,6 +67,9 @@ public class SpEmployeeController {
 	public ApiResponse deleteEmployee(@RequestParam SpEmployee spEmployee) {
 
 		ApiResponse result = new ApiResponse();
+		result.setCode(ResponseInfo.SUCCESS.code);
+		result.setMsg(ResponseInfo.SUCCESS.msg);
+		
 		if(spEmployee == null ){
 			return result;
 		}
