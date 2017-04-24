@@ -68,6 +68,8 @@ public class SpEmployeeController {
 		result.setMsg(ResponseInfo.SUCCESS.msg);
 		
 		if(spEmployee == null ){
+			result.setCode(ResponseInfo.LACK_PARAM.code);
+			result.setMsg(ResponseInfo.LACK_PARAM.msg);
 			return result;
 		}
 		int delete = spEmployeeService.deleteEmployee(spEmployee);
