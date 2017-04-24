@@ -52,6 +52,7 @@ public class SpEmployeeController {
 		result.setCode(ResponseInfo.SUCCESS.code);
 		result.setMsg(ResponseInfo.SUCCESS.msg);
 		if(spEmployee == null ){
+			result.setCode(ResponseInfo.LACK_PARAM.code);
 			result.setMsg("员工信息为空，不能保存");
 			return result;
 		}
