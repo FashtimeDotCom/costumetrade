@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import costumetrade.authority.service.SpMenuEmployeeService;
 import costumetrade.authority.service.SpMenuService;
 import costumetrade.common.param.ApiResponse;
+import costumetrade.common.param.ResponseInfo;
 import costumetrade.user.domain.SpMenu;
 import costumetrade.user.domain.SpMenuEmployee;
-import costumetrade.util.UserConstant;
 
 /**
  *
@@ -45,15 +45,19 @@ public class SpMenuController {
 	@RequestMapping("/addEmployeeMenus")
 	@ResponseBody
 	public ApiResponse addEmployeeMenus(@RequestBody List<SpMenuEmployee> spMenuEmployees) {
-		int save = 0;
 		ApiResponse result = new ApiResponse();
-		List<SpMenuEmployee> menuEmployeeLists = new ArrayList<SpMenuEmployee>();
+		result.setCode(ResponseInfo.SUCCESS.code);
+		result.setMsg(ResponseInfo.SUCCESS.msg);
 		
-		if(spMenuEmployees.size()>0){
-			save = spMenuEmployeeService.saveSpMenuEmployees(spMenuEmployees);
-			menuEmployeeLists = spMenuEmployeeService.getAllMenuEmployees(spMenuEmployees.get(0).getEmployeeId());
+		if(null==spMenuEmployees || spMenuEmployees.size()<=0){
+			result.setCode(ResponseInfo.LACK_PARAM.code);
+			result.setMsg(ResponseInfo.LACK_PARAM.msg);
+			return result;
 		}
-		result.setData(menuEmployeeLists);
+		
+	    spMenuEmployeeService.saveSpMenuEmployees(spMenuEmployees);
+			
+		
 		return result;
 	}
 	

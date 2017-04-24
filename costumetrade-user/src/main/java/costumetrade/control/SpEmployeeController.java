@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import costumetrade.common.Entity;
 import costumetrade.common.param.ApiResponse;
+import costumetrade.common.param.ResponseInfo;
 import costumetrade.domain.UserInfo;
 import costumetrade.employee.service.SpEmployeeService;
 import costumetrade.user.domain.SpEmployee;
@@ -34,16 +35,11 @@ public class SpEmployeeController {
 	public ApiResponse getAllEmployees(@RequestBody String subId) {
 
 		ApiResponse result = new ApiResponse();
+		result.setCode(ResponseInfo.SUCCESS.code);
+		result.setMsg(ResponseInfo.SUCCESS.msg);
 		List<SpEmployee> employeeLists = new ArrayList<SpEmployee>();
 		employeeLists = spEmployeeService.getAllEmployees(subId);
-		if(employeeLists.size()>0){
-			result.setCode(UserConstant.OPERATE_SUCCESS);
-			result.setData(employeeLists);
-		}else{
-			result.setCode(UserConstant.OPERATE_FAIL);
-			result.setMsg("暂无员工信息，请先对员工信息进行维护！");
-			result.setData(null);
-		}
+		result.setData(employeeLists);
 	
 		return result;
 	}
@@ -53,22 +49,20 @@ public class SpEmployeeController {
 	public ApiResponse saveEmployee(@RequestBody SpEmployee spEmployee) {
 
 		ApiResponse result = new ApiResponse();
+		result.setCode(ResponseInfo.SUCCESS.code);
+		result.setMsg(ResponseInfo.SUCCESS.msg);
 		if(spEmployee == null ){
 			result.setMsg("员工信息为空，不能保存");
 			return result;
 		}
 		int save = spEmployeeService.saveEmployee(spEmployee);
-		if(save == UserConstant.SAVE_FAIL){
-			result.setData(spEmployee);
-		}else if(save == UserConstant.SAVE_SUCCESS){
-			List<SpEmployee> employeeLists = new ArrayList<SpEmployee>();
-			if(spEmployee.getSubbelong()  != null && "".endsWith(spEmployee.getSubbelong() )){
-				employeeLists = spEmployeeService.getAllEmployees(spEmployee.getSubbelong());
-				result.setData(employeeLists);
-			}
-			
+		if(save<=0){
+			result.setCode(ResponseInfo.EXCEPTION.code);
+			result.setMsg(ResponseInfo.EXCEPTION.msg);
+			return result;
 		}
 		return result;
+
 	}
 
 	@RequestMapping("/deleteEmployee")
@@ -80,16 +74,10 @@ public class SpEmployeeController {
 			return result;
 		}
 		int delete = spEmployeeService.deleteEmployee(spEmployee);
-		if(delete == UserConstant.SAVE_FAIL){
-			
-			result.setData(spEmployee);
-			
-		}else if(delete == UserConstant.SAVE_SUCCESS){
-			List<SpEmployee> employeeLists = new ArrayList<SpEmployee>();
-			if(spEmployee.getSubbelong()  != null && "".endsWith(spEmployee.getSubbelong() )){
-				employeeLists = spEmployeeService.getAllEmployees(spEmployee.getSubbelong());
-				result.setData(employeeLists);
-			}
+		if(delete<=0){
+			result.setCode(ResponseInfo.EXCEPTION.code);
+			result.setMsg(ResponseInfo.EXCEPTION.msg);
+			return result;
 		}
 		return result;
 	}
