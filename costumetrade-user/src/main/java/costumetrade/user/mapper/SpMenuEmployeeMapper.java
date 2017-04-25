@@ -3,6 +3,7 @@ package costumetrade.user.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import costumetrade.user.domain.SpMenuEmployee;
 @Mapper
@@ -21,7 +22,9 @@ public interface SpMenuEmployeeMapper {
     
     List<SpMenuEmployee> getAllMenuEmployees(Long employeeId);
     
-    int saveSpMenuEmployees(List<SpMenuEmployee> menuEmployees);
+    int saveSpMenuEmployees(@Param("list")List<SpMenuEmployee> list);
     
     int deleteByEmployeeId(Long employeeId);
+    
+   // int insertMenuEmployees();
 }

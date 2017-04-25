@@ -27,15 +27,16 @@ public class SpMenuEmployeeServiceImpl implements SpMenuEmployeeService{
 		deleteByEmployeeId(menuEmployees.get(0).getEmployeeId());
 	
 		boolean save = true ;
-		int saveMenu = UserConstant.SAVE_SUCCESS;
-		for(SpMenuEmployee menuEmployee : menuEmployees ){
-			if(menuEmployee != null){
-				saveMenu = spMenuEmployeeMapper.insertSelective(menuEmployee);
-				if( saveMenu != UserConstant.SAVE_SUCCESS){
-					save = false ;
-				}
-			}
-		}
+		int saveMenu = 1;
+//		for(SpMenuEmployee menuEmployee : menuEmployees ){
+//			if(menuEmployee != null){
+//				saveMenu = spMenuEmployeeMapper.insertSelective(menuEmployee);
+//				if( saveMenu != 1){
+//					save = false ;
+//				}
+//			}
+//		}
+		spMenuEmployeeMapper.saveSpMenuEmployees(menuEmployees);
 		if(save){
 			return 1;
 		}else{
