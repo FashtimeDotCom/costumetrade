@@ -13,7 +13,6 @@ import costumetrade.common.param.ApiResponse;
 import costumetrade.common.param.ResponseInfo;
 import costumetrade.domain.SpMenu;
 import costumetrade.domain.SpMenuEmployee;
-import costumetrade.entity.SpMenuEmployeeEntity;
 import costumetrade.service.SpMenuEmployeeService;
 import costumetrade.service.SpMenuService;
 
@@ -45,21 +44,24 @@ public class SpMenuController {
 
 	@RequestMapping("/addEmployeeMenus")
 	@ResponseBody
-	public ApiResponse addEmployeeMenus(@RequestBody SpMenuEmployeeEntity spMenuEmployeeEntity) {
+	public ApiResponse addEmployeeMenus(Long empId,List<Long> menuIdList) {
 		ApiResponse result = new ApiResponse();
 		result.setCode(ResponseInfo.SUCCESS.code);
 		result.setMsg(ResponseInfo.SUCCESS.msg);
-		List<SpMenuEmployee> spMenuEmployees = new ArrayList<SpMenuEmployee>();
-		spMenuEmployees = spMenuEmployeeEntity.getSpMenuEmployees();
-		if(null==spMenuEmployees || spMenuEmployees.size()<=0){
+		if(null==empId || null==menuIdList || menuIdList.size()<=0){
 			result.setCode(ResponseInfo.LACK_PARAM.code);
 			result.setMsg(ResponseInfo.LACK_PARAM.msg);
 			return result;
 		}
+		List<SpMenuEmployee> spMenuEmployees = new ArrayList<SpMenuEmployee>();
 		
+		for(Long menuId:menuIdList){
+			SpMenuEmployee menuEmp = new SpMenuEmployee();
+			menuEmp.setEmployeeId(empId);
+			menuEmp.setMenuId(menuId);
+			spMenuEmployees.add(menuEmp);
+		}
 	    spMenuEmployeeService.saveSpMenuEmployees(spMenuEmployees);
-			
-		
 		return result;
 	}
 	
