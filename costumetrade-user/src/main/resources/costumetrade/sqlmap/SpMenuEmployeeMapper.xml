@@ -90,16 +90,8 @@
 		insert into sp_menu_employee
 		(menu_id, employee_id,
 		create_date,
-		modify_date) values
-		 
-		<foreach collection="list" item="item" index="index"
-			separator=",">
-			 ( #{item.menuId,jdbcType=BIGINT},
-			#{item.employeeId,jdbcType=BIGINT},
-			 
-			#{item.createDate,jdbcType=TIMESTAMP},
-			#{item.modifyDate,jdbcType=TIMESTAMP})
-			 
+		modify_date) values<foreach collection="list" item="item" index="index"
+			separator=",">( #{item.menuId,jdbcType=BIGINT},#{item.employeeId,jdbcType=BIGINT},#{item.createDate,jdbcType=TIMESTAMP},#{item.modifyDate,jdbcType=TIMESTAMP})
 		</foreach>
 
 	</insert>
