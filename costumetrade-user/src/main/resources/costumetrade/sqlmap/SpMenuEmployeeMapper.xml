@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="costumetrade.user.mapper.SpMenuEmployeeMapper">
-	<resultMap id="BaseResultMap" type="costumetrade.user.domain.SpMenuEmployee">
+<mapper namespace="costumetrade.mapper.SpMenuEmployeeMapper">
+	<resultMap id="BaseResultMap" type="costumetrade.domain.SpMenuEmployee">
 		<id column="id" jdbcType="BIGINT" property="id" />
 		<result column="menu_id" jdbcType="BIGINT" property="menuId" />
 		<result column="employee_id" jdbcType="BIGINT" property="employeeId" />
@@ -38,7 +38,7 @@
 		where employee_id = #{employeeId,jdbcType=BIGINT}
 	</delete>
 
-	<insert id="insert" parameterType="costumetrade.user.domain.SpMenuEmployee">
+	<insert id="insert" parameterType="costumetrade.domain.SpMenuEmployee">
 		insert into sp_menu_employee
 		(id, menu_id, employee_id,
 		create_date, modify_date)
@@ -48,7 +48,7 @@
 		#{createDate,jdbcType=TIMESTAMP},
 		#{modifyDate,jdbcType=TIMESTAMP})
 	</insert>
-	<insert id="insertSelective" parameterType="costumetrade.user.domain.SpMenuEmployee">
+	<insert id="insertSelective" parameterType="costumetrade.domain.SpMenuEmployee">
 		insert into sp_menu_employee
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -95,7 +95,7 @@
 		</foreach>
 
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="costumetrade.user.domain.SpMenuEmployee">
+	<update id="updateByPrimaryKeySelective" parameterType="costumetrade.domain.SpMenuEmployee">
 		update sp_menu_employee
 		<set>
 			<if test="menuId != null">
@@ -113,7 +113,7 @@
 		</set>
 		where id = #{id,jdbcType=BIGINT}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="costumetrade.user.domain.SpMenuEmployee">
+	<update id="updateByPrimaryKey" parameterType="costumetrade.domain.SpMenuEmployee">
 		update
 		sp_menu_employee
 		set menu_id = #{menuId,jdbcType=BIGINT},

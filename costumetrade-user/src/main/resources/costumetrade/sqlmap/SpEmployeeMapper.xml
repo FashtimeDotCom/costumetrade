@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="costumetrade.user.mapper.SpEmployeeMapper">
-  <resultMap id="BaseResultMap" type="costumetrade.user.domain.SpEmployee">
+<mapper namespace="costumetrade.mapper.SpEmployeeMapper">
+  <resultMap id="BaseResultMap" type="costumetrade.domain.SpEmployee">
     <id column="corpId" jdbcType="INTEGER" property="corpid" />
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="status" jdbcType="INTEGER" property="status" />
@@ -23,7 +23,7 @@
     corpId, id, status, subbelong, create_time, create_by, modify_time, modify_by, 
     name, password, phone, cphone, address, email, birthdate, card_id
   </sql>
-  <select id="selectByPrimaryKey" parameterType="costumetrade.user.domain.SpEmployeeKey" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="costumetrade.domain.SpEmployeeKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sp_employee
@@ -44,14 +44,14 @@
  	subbelong = #{subbelong,jdbcType=VARCHAR}
   </select>
   
-  <delete id="deleteByPrimaryKey" parameterType="costumetrade.user.domain.SpEmployeeKey">
+  <delete id="deleteByPrimaryKey" parameterType="costumetrade.domain.SpEmployeeKey">
     delete from sp_employee
     where corpId = #{corpid,jdbcType=INTEGER}
       <if test="id != null">
       and id = #{id,jdbcType=VARCHAR}
       </if>
   </delete>
-  <insert id="insert" parameterType="costumetrade.user.domain.SpEmployee">
+  <insert id="insert" parameterType="costumetrade.domain.SpEmployee">
     insert into sp_employee (corpId, id, status, 
       subbelong, create_time, create_by, 
       modify_time, modify_by, 
@@ -65,7 +65,7 @@
       #{cphone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{birthdate,jdbcType=TIMESTAMP}, #{cardId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="costumetrade.user.domain.SpEmployee">
+  <insert id="insertSelective" parameterType="costumetrade.domain.SpEmployee">
     insert into sp_employee
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="corpid != null">
@@ -168,7 +168,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="costumetrade.user.domain.SpEmployee">
+  <update id="updateByPrimaryKeySelective" parameterType="costumetrade.domain.SpEmployee">
     update sp_employee
     <set>
       <if test="status != null">
@@ -217,7 +217,7 @@
     where corpId = #{corpid,jdbcType=INTEGER}
       and id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="costumetrade.user.domain.SpEmployee">
+  <update id="updateByPrimaryKey" parameterType="costumetrade.domain.SpEmployee">
     update sp_employee
     set status = #{status,jdbcType=INTEGER},
       subbelong = #{subbelong,jdbcType=VARCHAR},
