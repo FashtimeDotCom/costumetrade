@@ -23,7 +23,7 @@ public enum ResponseInfo {
 	BUSI_NOT_OPEN(1006,"业务未开通或已暂停"),
 	PASSWORD_ERROR(1007,"密码错误"),
 	MOBILE_VERIFICATION_CODE_ERROR(1008,"手机验证码错误"),
-
+	LACK_PARAM(1009,"缺少参数"),
 	TASK_EXPIRED(2000,"任务失效"), 
 	;
 
