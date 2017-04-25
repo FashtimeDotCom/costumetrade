@@ -1,13 +1,11 @@
-package costumetrade.user.mapper;
+package costumetrade.mapper;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
-import costumetrade.user.domain.SpEmployee;
-import costumetrade.user.domain.SpEmployeeKey;
+import costumetrade.domain.SpEmployee;
+import costumetrade.domain.SpEmployeeKey;
 
 @Mapper
 public interface SpEmployeeMapper {

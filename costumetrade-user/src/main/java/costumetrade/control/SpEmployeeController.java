@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import costumetrade.common.param.ApiResponse;
 import costumetrade.common.param.ResponseInfo;
-import costumetrade.employee.service.SpEmployeeService;
-import costumetrade.user.domain.SpEmployee;
+import costumetrade.domain.SpEmployee;
+import costumetrade.service.SpEmployeeService;
 
 /**
  *

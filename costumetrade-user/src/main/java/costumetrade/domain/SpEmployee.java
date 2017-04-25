@@ -1,4 +1,4 @@
-package costumetrade.user.domain;
+package costumetrade.domain;
 
 import java.io.Serializable;
 import java.util.Date;

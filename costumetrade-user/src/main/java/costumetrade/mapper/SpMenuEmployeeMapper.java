@@ -1,11 +1,11 @@
-package costumetrade.user.mapper;
+package costumetrade.mapper;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import costumetrade.user.domain.SpMenuEmployee;
+import costumetrade.domain.SpMenuEmployee;
 @Mapper
 public interface SpMenuEmployeeMapper {
     int deleteByPrimaryKey(Long id);

@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import costumetrade.authority.service.SpMenuEmployeeService;
-import costumetrade.authority.service.SpMenuService;
 import costumetrade.common.param.ApiResponse;
 import costumetrade.common.param.ResponseInfo;
-import costumetrade.user.domain.SpMenu;
-import costumetrade.user.domain.SpMenuEmployee;
+import costumetrade.domain.SpMenu;
+import costumetrade.domain.SpMenuEmployee;
+import costumetrade.service.SpMenuEmployeeService;
+import costumetrade.service.SpMenuService;
 
 /**
  *

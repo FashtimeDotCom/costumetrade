@@ -1,4 +1,4 @@
-package costumetrade.user.domain;
+package costumetrade.domain;
 
 import costumetrade.common.Entity;
 

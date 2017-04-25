@@ -10,7 +10,6 @@
     <result column="create_by" jdbcType="VARCHAR" property="createBy" />
     <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
     <result column="modify_by" jdbcType="VARCHAR" property="modifyBy" />
-    <result column="permission" jdbcType="VARCHAR" property="permission" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
@@ -21,7 +20,7 @@
     <result column="card_id" jdbcType="VARCHAR" property="cardId" />
   </resultMap>
   <sql id="Base_Column_List">
-    corpId, id, status, subbelong, create_time, create_by, modify_time, modify_by, permission, 
+    corpId, id, status, subbelong, create_time, create_by, modify_time, modify_by, 
     name, password, phone, cphone, address, email, birthdate, card_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="costumetrade.user.domain.SpEmployeeKey" resultMap="BaseResultMap">
@@ -55,13 +54,13 @@
   <insert id="insert" parameterType="costumetrade.user.domain.SpEmployee">
     insert into sp_employee (corpId, id, status, 
       subbelong, create_time, create_by, 
-      modify_time, modify_by, permission, 
+      modify_time, modify_by, 
       name, password, phone, 
       cphone, address, email, 
       birthdate, card_id)
     values (#{corpid,jdbcType=INTEGER}, #{id,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
       #{subbelong,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, 
-      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyBy,jdbcType=VARCHAR}, #{permission,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyBy,jdbcType=VARCHAR}, 
       #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{cphone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{birthdate,jdbcType=TIMESTAMP}, #{cardId,jdbcType=VARCHAR})
@@ -92,9 +91,6 @@
       </if>
       <if test="modifyBy != null">
         modify_by,
-      </if>
-      <if test="permission != null">
-        permission,
       </if>
       <if test="name != null">
         name,
@@ -146,9 +142,6 @@
       <if test="modifyBy != null">
         #{modifyBy,jdbcType=VARCHAR},
       </if>
-      <if test="permission != null">
-        #{permission,jdbcType=VARCHAR},
-      </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
@@ -196,9 +189,6 @@
       <if test="modifyBy != null">
         modify_by = #{modifyBy,jdbcType=VARCHAR},
       </if>
-      <if test="permission != null">
-        permission = #{permission,jdbcType=VARCHAR},
-      </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
@@ -235,7 +225,6 @@
       create_by = #{createBy,jdbcType=VARCHAR},
       modify_time = #{modifyTime,jdbcType=TIMESTAMP},
       modify_by = #{modifyBy,jdbcType=VARCHAR},
-      permission = #{permission,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},

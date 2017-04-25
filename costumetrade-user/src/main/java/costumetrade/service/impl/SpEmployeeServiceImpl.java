@@ -1,4 +1,4 @@
-package costumetrade.employee.service.impl;
+package costumetrade.service.impl;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import costumetrade.employee.service.SpEmployeeService;
-import costumetrade.user.domain.SpEmployee;
-import costumetrade.user.domain.SpEmployeeKey;
-import costumetrade.user.mapper.SpEmployeeMapper;
+import costumetrade.domain.SpEmployee;
+import costumetrade.domain.SpEmployeeKey;
+import costumetrade.mapper.SpEmployeeMapper;
+import costumetrade.service.SpEmployeeService;
 
 @Transactional
 @Service

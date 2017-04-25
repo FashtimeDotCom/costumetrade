@@ -1,8 +1,8 @@
-package costumetrade.employee.service;
+package costumetrade.service;
 
 import java.util.List;
 
-import costumetrade.user.domain.SpEmployee;
+import costumetrade.domain.SpEmployee;
 
 
 public interface SpEmployeeService {

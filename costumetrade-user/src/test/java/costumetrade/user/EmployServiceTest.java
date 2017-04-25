@@ -5,7 +5,6 @@
  */
 package costumetrade.user;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import org.junit.Test;
@@ -14,8 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import costumetrade.employee.service.SpEmployeeService;
-import costumetrade.user.domain.SpEmployee;
+import costumetrade.domain.SpEmployee;
+import costumetrade.service.SpEmployeeService;
 
 /**
  * @author caiyj

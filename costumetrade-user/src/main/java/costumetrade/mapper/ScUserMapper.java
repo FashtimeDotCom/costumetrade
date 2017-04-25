@@ -1,6 +1,6 @@
-package costumetrade.user.mapper;
+package costumetrade.mapper;
 
-import costumetrade.user.domain.ScUser;
+import costumetrade.domain.ScUser;
 
 public interface ScUserMapper {
     int deleteByPrimaryKey(String id);
