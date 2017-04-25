@@ -25,19 +25,10 @@ public class SpMenuEmployeeServiceImpl implements SpMenuEmployeeService{
 	public int saveSpMenuEmployees(List<SpMenuEmployee> menuEmployees) {
 		//每次传值为员工所勾选的权限，先对之前的权限记录删除，再保存新的权限
 		deleteByEmployeeId(menuEmployees.get(0).getEmployeeId());
-	
-		boolean save = true ;
-		int saveMenu = 1;
-//		for(SpMenuEmployee menuEmployee : menuEmployees ){
-//			if(menuEmployee != null){
-//				saveMenu = spMenuEmployeeMapper.insertSelective(menuEmployee);
-//				if( saveMenu != 1){
-//					save = false ;
-//				}
-//			}
-//		}
-		spMenuEmployeeMapper.saveSpMenuEmployees(menuEmployees);
-		if(save){
+		int saveMenu = 0;
+
+		saveMenu = spMenuEmployeeMapper.saveSpMenuEmployees(menuEmployees);
+		if(saveMenu > 0){
 			return 1;
 		}else{
 			return 0;

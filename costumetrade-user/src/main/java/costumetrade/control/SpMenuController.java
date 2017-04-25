@@ -15,6 +15,7 @@ import costumetrade.domain.SpMenu;
 import costumetrade.domain.SpMenuEmployee;
 import costumetrade.service.SpMenuEmployeeService;
 import costumetrade.service.SpMenuService;
+import costumetrade.user.entity.SpMenuEmployeeEntity;
 
 /**
  *
@@ -44,11 +45,12 @@ public class SpMenuController {
 
 	@RequestMapping("/addEmployeeMenus")
 	@ResponseBody
-	public ApiResponse addEmployeeMenus(@RequestBody List<SpMenuEmployee> spMenuEmployees) {
+	public ApiResponse addEmployeeMenus(@RequestBody SpMenuEmployeeEntity spMenuEmployeeEntity) {
 		ApiResponse result = new ApiResponse();
 		result.setCode(ResponseInfo.SUCCESS.code);
 		result.setMsg(ResponseInfo.SUCCESS.msg);
-		
+		List<SpMenuEmployee> spMenuEmployees = new ArrayList<SpMenuEmployee>();
+		spMenuEmployees = spMenuEmployeeEntity.getSpMenuEmployees();
 		if(null==spMenuEmployees || spMenuEmployees.size()<=0){
 			result.setCode(ResponseInfo.LACK_PARAM.code);
 			result.setMsg(ResponseInfo.LACK_PARAM.msg);
