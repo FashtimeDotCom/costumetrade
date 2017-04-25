@@ -13,9 +13,9 @@ import costumetrade.common.param.ApiResponse;
 import costumetrade.common.param.ResponseInfo;
 import costumetrade.domain.SpMenu;
 import costumetrade.domain.SpMenuEmployee;
+import costumetrade.entity.SpMenuEmployeeEntity;
 import costumetrade.service.SpMenuEmployeeService;
 import costumetrade.service.SpMenuService;
-import costumetrade.user.entity.SpMenuEmployeeEntity;
 
 /**
  *
