@@ -19,9 +19,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import costumetrade.common.util.HttpPostUtil;
 import costumetrade.domain.SpMenuEmployee;
+import costumetrade.entity.SpMenuEmployeeEntity;
 import costumetrade.service.SpMenuEmployeeService;
 import costumetrade.service.SpMenuService;
-import costumetrade.user.entity.SpMenuEmployeeEntity;
 
 /**
  * @author caiyj
