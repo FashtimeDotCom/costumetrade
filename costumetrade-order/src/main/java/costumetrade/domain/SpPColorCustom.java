@@ -4,12 +4,11 @@ import costumetrade.common.Entity;
 
 import java.util.Date;
 
-public class SpPColor extends Entity {
-	private static final long serialVersionUID = 1L;
+public class SpPColorCustom extends Entity {
     /**
-     *  条形编码
+     *  值
      */
-    private String barcode;
+    private String value;
 
     /**
      *  创建时间
@@ -30,6 +29,8 @@ public class SpPColor extends Entity {
      *  修改人
      */
     private String modifyBy;
+
+    private static final long serialVersionUID = 1L;
     /**
      *  企业ID
      */
@@ -56,14 +57,12 @@ public class SpPColor extends Entity {
         this.id = id == null ? null : id.trim();
     }
 
-    
-
-    public String getBarcode() {
-        return barcode;
+    public String getValue() {
+        return value;
     }
 
-    public void setBarcode(String barcode) {
-        this.barcode = barcode == null ? null : barcode.trim();
+    public void setValue(String value) {
+        this.value = value == null ? null : value.trim();
     }
 
     public Date getCreateTime() {

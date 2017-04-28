@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="costumetrade.mapper.SpPrinterInfoMapper">
+  <resultMap id="BaseResultMap" type="costumetrade.domain.SpPrinterInfo">
+    <id column="corpId" jdbcType="INTEGER" property="corpid" />
+    <id column="subId" jdbcType="VARCHAR" property="subid" />
+    <result column="mbId" jdbcType="VARCHAR" property="mbid" />
+    <result column="mbUser" jdbcType="INTEGER" property="mbuser" />
+    <result column="mbImage" jdbcType="LONGVARCHAR" property="mbimage" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    corpId, subId, mbId, mbUser,mbImage
+  </sql>
+ 
+  <select id="selectByPrimaryKey" parameterType="costumetrade.domain.SpPrinterInfoKey" resultType="costumetrade.domain.SpPrinterInfo">
+    select 
+    <include refid="Base_Column_List" />
+    from sc_printer_info
+    where corpId = #{corpid,jdbcType=INTEGER}
+      and subId = #{subid,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="costumetrade.domain.SpPrinterInfoKey">
+    delete from sc_printer_info
+    where corpId = #{corpid,jdbcType=INTEGER}
+      and subId = #{subid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="costumetrade.domain.SpPrinterInfo">
+    insert into sc_printer_info (corpId, subId, mbId, 
+      mbUser, mbImage)
+    values (#{corpid,jdbcType=INTEGER}, #{subid,jdbcType=VARCHAR}, #{mbid,jdbcType=VARCHAR}, 
+      #{mbuser,jdbcType=INTEGER}, #{mbimage,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="costumetrade.domain.SpPrinterInfo">
+    insert into sc_printer_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="corpid != null">
+        corpId,
+      </if>
+      <if test="subid != null">
+        subId,
+      </if>
+      <if test="mbid != null">
+        mbId,
+      </if>
+      <if test="mbuser != null">
+        mbUser,
+      </if>
+      <if test="mbimage != null">
+        mbImage,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="corpid != null">
+        #{corpid,jdbcType=INTEGER},
+      </if>
+      <if test="subid != null">
+        #{subid,jdbcType=VARCHAR},
+      </if>
+      <if test="mbid != null">
+        #{mbid,jdbcType=VARCHAR},
+      </if>
+      <if test="mbuser != null">
+        #{mbuser,jdbcType=INTEGER},
+      </if>
+      <if test="mbimage != null">
+        #{mbimage,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="costumetrade.domain.SpPrinterInfo">
+    update sc_printer_info
+    <set>
+      <if test="mbid != null">
+        mbId = #{mbid,jdbcType=VARCHAR},
+      </if>
+      <if test="mbuser != null">
+        mbUser = #{mbuser,jdbcType=INTEGER},
+      </if>
+      <if test="mbimage != null">
+        mbImage = #{mbimage,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where corpId = #{corpid,jdbcType=INTEGER}
+      and subId = #{subid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="costumetrade.domain.SpPrinterInfo">
+    update sc_printer_info
+    set mbId = #{mbid,jdbcType=VARCHAR},
+      mbUser = #{mbuser,jdbcType=INTEGER},
+      mbImage = #{mbimage,jdbcType=LONGVARCHAR}
+    where corpId = #{corpid,jdbcType=INTEGER}
+      and subId = #{subid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="costumetrade.domain.SpPrinterInfo">
+    update sc_printer_info
+    set mbId = #{mbid,jdbcType=VARCHAR},
+      mbUser = #{mbuser,jdbcType=INTEGER}
+    where corpId = #{corpid,jdbcType=INTEGER}
+      and subId = #{subid,jdbcType=VARCHAR}
+  </update>
+</mapper>

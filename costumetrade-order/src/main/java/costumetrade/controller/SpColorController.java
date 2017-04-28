@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import costumetrade.common.param.ApiResponse;
 import costumetrade.common.param.ResponseInfo;
 import costumetrade.domain.SpPColor;
+import costumetrade.domain.SpPColorCustom;
+import costumetrade.domain.SpPColorCustomKey;
 import costumetrade.domain.SpPColorKey;
+import costumetrade.service.SpPColorCustomService;
 import costumetrade.service.SpPColorService;
 
 /**
@@ -27,6 +30,8 @@ import costumetrade.service.SpPColorService;
 public class SpColorController {
 	@Autowired
 	private SpPColorService spPColorService;
+	@Autowired
+	private SpPColorCustomService spPColorCustomService;
 
 	@RequestMapping("/getAllColors")
 	@ResponseBody
@@ -82,4 +87,57 @@ public class SpColorController {
 		return result;
 	}
 	
+	@RequestMapping("/getAllColorCustoms")
+	@ResponseBody
+	public ApiResponse getAllColorCustoms(@RequestBody int corpId) {
+		
+		List<SpPColorCustom> colorCustomLists = new ArrayList<SpPColorCustom>();
+		colorCustomLists = spPColorCustomService.getSpPColorCustoms(corpId);
+
+		return  ApiResponse.getInstance(colorCustomLists);
+	}
+
+	@RequestMapping("/saveColorCustom")
+	@ResponseBody
+	public ApiResponse saveColorCustom(@RequestBody SpPColorCustom spPColorCustom) {
+
+		ApiResponse result = new ApiResponse();
+		result.setCode(ResponseInfo.SUCCESS.code);
+		result.setMsg(ResponseInfo.SUCCESS.msg);
+		if(spPColorCustom == null ){
+			result.setCode(ResponseInfo.LACK_PARAM.code);
+			result.setMsg(ResponseInfo.LACK_PARAM.msg);
+			return result;
+		}
+		int save = spPColorCustomService.saveSpPColorCustom(spPColorCustom);
+		if(save<=0){
+			result.setCode(ResponseInfo.EXCEPTION.code);
+			result.setMsg(ResponseInfo.EXCEPTION.msg);
+			return result;
+		}
+		return result;
+
+	}
+
+	@RequestMapping("/deleteColorCustom")
+	@ResponseBody
+	public ApiResponse deleteColorCustom(@RequestParam SpPColorCustomKey spPColorCustomKey) {
+
+		ApiResponse result = new ApiResponse();
+		result.setCode(ResponseInfo.SUCCESS.code);
+		result.setMsg(ResponseInfo.SUCCESS.msg);
+		
+		if(spPColorCustomKey == null ){
+			result.setCode(ResponseInfo.LACK_PARAM.code);
+			result.setMsg(ResponseInfo.LACK_PARAM.msg);
+			return result;
+		}
+		int delete = spPColorCustomService.deleteSpPColorCustom(spPColorCustomKey);
+		if(delete<=0){
+			result.setCode(ResponseInfo.EXCEPTION.code);
+			result.setMsg(ResponseInfo.EXCEPTION.msg);
+			return result;
+		}
+		return result;
+	}
 }

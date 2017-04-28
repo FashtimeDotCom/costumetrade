@@ -8,8 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import costumetrade.domain.SpPCate;
 import costumetrade.domain.SpPCateKey;
-import costumetrade.domain.SpPColor;
-import costumetrade.domain.SpPColorKey;
+
 import costumetrade.mapper.SpPCateMapper;
 import costumetrade.service.SpPCateService;
 
